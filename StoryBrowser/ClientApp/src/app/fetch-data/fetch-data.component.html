@@ -1,0 +1,26 @@
+<h1 id="tableLabel">Top 10 Stories</h1>
+ 
+<p>Fetching top 10 stories(11 to show paging).</p>
+
+<p *ngIf="!stories"><em>Loading...</em></p>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Author</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let story of stories">
+      <td>{{ story.id }}</td>
+      <td><a href="{{story.url}}" *ngIf="story.url.length>0">{{ story.title }}</a> <div *ngIf="!story.url.length>0">{{ story.title }}</div></td>
+      <td>{{ story.by }}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+ 
